@@ -188,7 +188,12 @@ func (dExt *DriverExt) FindAllImageRect(search string) (rects []image.Rectangle,
 	return
 }
 
+var FileCacheMap = map[string]*bytes.Buffer{}
+
 func getBufFromDisk(name string) (*bytes.Buffer, error) {
+	if buff, ok := FileCacheMap[name]; ok {
+		return buff, nil
+	}
 	var f *os.File
 	var err error
 	if f, err = os.Open(name); err != nil {
@@ -196,9 +201,13 @@ func getBufFromDisk(name string) (*bytes.Buffer, error) {
 	}
 	var all []byte
 	if all, err = ioutil.ReadAll(f); err != nil {
+		f.Close()
 		return nil, err
 	}
-	return bytes.NewBuffer(all), nil
+	f.Close()
+	buffer := bytes.NewBuffer(all)
+	FileCacheMap[name] = buffer
+	return buffer, nil
 }
 
 func (dExt *DriverExt) FindImageRectInUIKit(search string) (x, y, width, height float64, err error) {

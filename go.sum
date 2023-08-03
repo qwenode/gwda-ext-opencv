@@ -1,7 +1,6 @@
 github.com/electricbubble/gidevice v0.6.2 h1:eIeCHH7Xn5fTwnUv3qL8c7L4anKIHtjlTBkgr1LDVTc=
 github.com/electricbubble/gidevice v0.6.2/go.mod h1:bRHL2M9qgeEKju8KRvKMZUVEg7t5zMnTiG3SJ3QDH5o=
-github.com/electricbubble/opencv-helper v0.0.3 h1:p0sHTUPPPm8GqzVUtYH+wQbJoguzotUXVRAS7Ibk7nI=
-github.com/electricbubble/opencv-helper v0.0.3/go.mod h1:VHB21p5xsIjXUsUleWSaKGJosRsRAO7cuJoZKf7uCcc=
+github.com/hybridgroup/mjpeg v0.0.0-20140228234708-4680f319790e/go.mod h1:eagM805MRKrioHYuU7iKLUyFPVKqVV6um5DAvCkUtXs=
 github.com/jessevdk/go-flags v1.4.0/go.mod h1:4FA24M0QyGHXBuZZK/XkWh8h0e1EYbRYJSGM75WSRxI=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
@@ -13,10 +12,12 @@ github.com/lunixbochs/struc v0.0.0-20200707160740-784aaebc1d40/go.mod h1:vy1vK6w
 github.com/pascaldekloe/goe v0.1.0/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/qwenode/gwda v0.6.0 h1:E4U1Qeoz9JQElUjPjLJHPCktbwgFtj+5aWMn5qgyG0s=
 github.com/qwenode/gwda v0.6.0/go.mod h1:8p8335EfgedjGWZKl4zgqjnLCNcntyd0UTsoxY3Ttr8=
+github.com/qwenode/opencv-helper v0.0.4 h1:fR46kZggK+J16JBYUfLPap63DBYg3YXBZ+lXr4K9rHs=
+github.com/qwenode/opencv-helper v0.0.4/go.mod h1:Bs5GZxvCv86ST9FkZ7tUJy9QRJYtb9kp+1XgBg7dbws=
 github.com/satori/go.uuid v1.2.0 h1:0uYX9dsZ2yD7q2RtLRtPSdGDWzjeM3TbMJP9utgA0ww=
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
-gocv.io/x/gocv v0.27.0 h1:3X8I74ULsWHd4m7DQRv2Nqx5VkKscfUFnKgLNodiboI=
-gocv.io/x/gocv v0.27.0/go.mod h1:n4LnYjykU6y9gn48yZf4eLCdtuSb77XxSkW6g0wGf/A=
+gocv.io/x/gocv v0.33.0 h1:WDtaBrq92AKrhepYzEktydDzNSm3t5k7ciawZK4rns8=
+gocv.io/x/gocv v0.33.0/go.mod h1:oc6FvfYqfBp99p+yOEzs9tbYF9gOrAQSeL/dyIPefJU=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=

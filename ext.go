@@ -2,6 +2,7 @@ package gwda_ext_opencv
 
 import (
 	"bytes"
+	"embed"
 	"errors"
 	"github.com/qwenode/gwda"
 	cvHelper "github.com/qwenode/opencv-helper"
@@ -42,6 +43,14 @@ const (
 	// DmNotMatch output only values that do not match
 	DmNotMatch
 )
+
+var EmbedFiles embed.FS
+var embedEnable = false
+
+func SetEmbedFiles(fs embed.FS) {
+	embedEnable = true
+	EmbedFiles = fs
+}
 
 type DriverExt struct {
 	driver          gwda.WebDriver
@@ -192,6 +201,19 @@ func (dExt *DriverExt) FindAllImageRect(search string) (rects []image.Rectangle,
 var FileCacheMap = map[string]*bytes.Buffer{}
 
 func getBufFromDisk(name string) (*bytes.Buffer, error) {
+	if embedEnable {
+		name = strings.ReplaceAll(name, "\\", "/")
+		split := strings.Split(name, "/")
+		if len(split) > 1 {
+			name = strings.TrimSpace(split[len(split)-1])
+		}
+		file, err := EmbedFiles.ReadFile(name)
+		if err != nil {
+			return nil, err
+		}
+		buffer := bytes.NewBuffer(file)
+		return buffer, nil
+	}
 	if buff, ok := FileCacheMap[name]; ok {
 		return buff, nil
 	}

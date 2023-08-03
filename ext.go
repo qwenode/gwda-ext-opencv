@@ -135,6 +135,7 @@ func (dExt *DriverExt) ConnectMjpegStream(httpClient *http.Client) (err error) {
 				}
 
 				raw := new(bytes.Buffer)
+				raw.Grow(2003458)
 				if _, err = raw.ReadFrom(part); err != nil {
 					dExt.frame = nil
 					continue

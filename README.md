@@ -18,8 +18,8 @@ package main
 
 import (
 	"fmt"
-	. "github.com/electricbubble/gwda"
-	extOpenCV "github.com/electricbubble/gwda-ext-opencv"
+	. "github.com/qwenode/gwda"
+	extOpenCV "github.com/qwenode/gwda-ext-opencv"
 	"log"
 )
 

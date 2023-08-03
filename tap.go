@@ -1,7 +1,7 @@
 package gwda_ext_opencv
 
 import (
-	"github.com/electricbubble/gwda"
+	"github.com/qwenode/gwda"
 )
 
 func (dExt *DriverExt) Tap(pathname string) error {

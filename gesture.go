@@ -1,7 +1,7 @@
 package gwda_ext_opencv
 
 import (
-	"github.com/electricbubble/gwda"
+	"github.com/qwenode/gwda"
 	"image"
 	"sort"
 )

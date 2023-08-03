@@ -3,8 +3,8 @@ package gwda_ext_opencv
 import (
 	"bytes"
 	"errors"
-	"github.com/electricbubble/gwda"
 	cvHelper "github.com/electricbubble/opencv-helper"
+	"github.com/qwenode/gwda"
 	"image"
 	"io/ioutil"
 	"mime"

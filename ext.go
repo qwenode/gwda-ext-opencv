@@ -203,9 +203,11 @@ var FileCacheMap = map[string]*bytes.Buffer{}
 func getBufFromDisk(name string) (*bytes.Buffer, error) {
 	if EnableEmbed {
 		name = strings.ReplaceAll(name, "\\", "/")
-		split := strings.Split(name, "/")
-		if len(split) > 1 {
-			name = strings.TrimSpace(split[len(split)-1])
+		if strings.Contains(name, "/") {
+			split := strings.Split(name, "/")
+			if len(split) > 1 {
+				name = strings.TrimSpace(split[len(split)-1])
+			}
 		}
 		file, err := EmbedFiles.ReadFile(name)
 		if err != nil {

@@ -45,10 +45,10 @@ const (
 )
 
 var EmbedFiles embed.FS
-var embedEnable = false
+var EnableEmbed = false
 
 func SetEmbedFiles(fs embed.FS) {
-	embedEnable = true
+	EnableEmbed = true
 	EmbedFiles = fs
 }
 
@@ -201,7 +201,7 @@ func (dExt *DriverExt) FindAllImageRect(search string) (rects []image.Rectangle,
 var FileCacheMap = map[string]*bytes.Buffer{}
 
 func getBufFromDisk(name string) (*bytes.Buffer, error) {
-	if embedEnable {
+	if EnableEmbed {
 		name = strings.ReplaceAll(name, "\\", "/")
 		split := strings.Split(name, "/")
 		if len(split) > 1 {

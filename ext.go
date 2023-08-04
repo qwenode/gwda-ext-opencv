@@ -234,11 +234,36 @@ func getBufFromDisk(name string) (*bytes.Buffer, error) {
 	FileCacheMap[name] = buffer
 	return buffer, nil
 }
+func (dExt *DriverExt) FindImageRectInUIKitLeast(least int, searchs ...string) bool {
+	var bufSource, bufSearch *bytes.Buffer
+	var rect image.Rectangle
+	var err error
+	c := 0
+	if bufSource, err = dExt.takeScreenshot(); err != nil {
+		return false
+	}
+	for _, search := range searchs {
+		if bufSearch, err = getBufFromDisk(search); err != nil {
+			continue
+		}
+		if rect, err = cvHelper.FindImageRectFromRaw(bufSource, bufSearch, float32(dExt.Threshold), cvHelper.TemplateMatchMode(dExt.MatchMode)); err != nil {
+			continue
+		}
+		x, y, width, height := dExt.MappingToRectInUIKit(rect)
+		if width > 0 && height > 0 && x > 0 && y > 0 {
+			c++
+		}
+		if c >= least {
+			return true
+		}
+	}
+	return c >= least
+}
 func (dExt *DriverExt) FindImageRectInUIKitCount(searchs ...string) int {
 	var bufSource, bufSearch *bytes.Buffer
 	var rect image.Rectangle
 	var err error
-	c:=0
+	c := 0
 	if bufSource, err = dExt.takeScreenshot(); err != nil {
 		return c
 	}
@@ -250,7 +275,7 @@ func (dExt *DriverExt) FindImageRectInUIKitCount(searchs ...string) int {
 			continue
 		}
 		x, y, width, height := dExt.MappingToRectInUIKit(rect)
-		if width > 0 && height > 0 && x>0 && y>0 {
+		if width > 0 && height > 0 && x > 0 && y > 0 {
 			c++
 		}
 	}
